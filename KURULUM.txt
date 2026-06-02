@@ -1,0 +1,35 @@
+GUARDWORK - Acil Durum + Man Down (Android / Kotlin)
+=====================================================
+
+KURULUM
+1. Android Studio'da: File > New > Import Project
+   ve bu klasoru (GuardWork) sec.
+   (Ya da mevcut projende dosyalari ilgili yerlere kopyala.)
+
+2. Ilk acilista Gradle internetten paketleri indirir, bekle.
+
+3. AYARLA: app/src/main/java/com/example/guardwork/EmergencyManager.kt
+   icindeki "contacts" listesine gercek numaralari yaz:
+       var contacts = listOf("0532...", "0533...")
+
+4. Telefonu bilgisayara bagla, Run (yesil ok) tusuna bas.
+
+5. Uygulama acilinca SMS, KONUM ve BILDIRIM izinlerini ver.
+   (SMS izni emulatorde calismaz; gercek telefon kullan.)
+
+AYARLANABILIR DEGERLER
+- ManDownService.kt:
+    STILL_LIMIT_MS = 12000   -> hareketsizlik suresi (ms)
+    FALL_G = 2.6             -> dusme hassasiyeti
+- AlarmActivity.kt:
+    COUNTDOWN = 15           -> alarm oncesi iptal suresi (sn)
+
+DOSYALAR
+- MainActivity.kt      : Ana ekran (Acil Durum butonu + Man Down ac/kapa)
+- ManDownService.kt    : Arka planda hareketsizlik/dusme tespiti
+- AlarmActivity.kt     : Geri sayim + siren + iptal, sonra SMS
+- EmergencyManager.kt  : Konum (FusedLocation) + SMS gonderme
+- AndroidManifest.xml  : Izinler
+
+NOT: Bu calisan iskelet koddur. Kisi kayit ekrani, kalici ayarlar
+(SharedPreferences) ve ikon gibi seyleri kendine gore ekleyebilirsin.
